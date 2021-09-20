@@ -2,6 +2,9 @@ package logger
 
 import "fmt"
 
-func Log(str string) {
-	fmt.Println(str)
+type Logger struct {
+}
+
+func (l *Logger) Log(str string) (int, error) {
+	return fmt.Println(str)
 }
