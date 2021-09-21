@@ -2,22 +2,14 @@ package main
 
 import (
 	"fmt"
+	"gapi/infrastructure/persistence"
 	"net/http"
 )
 
-type Handler interface {
-	GetTitle() string
-}
-
-type Page struct{}
-
-func (p Page) GetTitle() string {
-	return "Hello"
-}
-
 func hello(w http.ResponseWriter, req *http.Request) {
-	page := Page{}
-	fmt.Println(page.GetTitle())
+	services, _ := persistence.NewRepositories()
+	user, _ := services.User.GetUser("1")
+	fmt.Println(user.ID)
 }
 
 func main() {
