@@ -14,5 +14,5 @@ func NewUserRepository() *UserRepo {
 var _ repository.UserRepository = &UserRepo{}
 
 func (r *UserRepo) GetUser(id string) (*entity.User, error) {
-	return &entity.User{ID: id}, nil
+	return &entity.User{ID: id, Nickname: "k_talpa"}, nil
 }

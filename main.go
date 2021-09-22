@@ -10,6 +10,7 @@ func hello(w http.ResponseWriter, req *http.Request) {
 	services, _ := persistence.NewRepositories()
 	user, _ := services.User.GetUser("1")
 	fmt.Println(user.ID)
+	fmt.Println(user.Nickname)
 }
 
 func main() {
